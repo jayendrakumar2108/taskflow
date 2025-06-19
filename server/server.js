@@ -29,6 +29,11 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ message: 'Task Manager API is running!' });
